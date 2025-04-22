@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Kurs Kayit";
+}
+@model KursViewModel
+<h2>Kurs Ekle</h2>
+<hr>
+<form asp-controller="Kurs" asp-action="Create" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="KursBaslik" class="form-label"></label>
+        <input type="text" class="form-control" asp-for="KursBaslik">
+    </div>
+    <div class="mb-3">
+        <label asp-for="OgretmenId" class="form-label">Öğretmen</label>
+        <select asp-for="OgretmenId" class="form-select" asp-items="ViewBag.ogretmen">
+           <option value="">Seçiniz</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form>

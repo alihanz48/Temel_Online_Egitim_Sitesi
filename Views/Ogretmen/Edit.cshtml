@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Öğretmen Edit";
+}
+@model Ogretmen
+<h2>Öğretmen Güncelleme</h2>
+<hr>
+
+<div class="row">
+
+    <div class="col-8">
+        <form asp-controller="Ogretmen" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="OgretmenId">
+            <div class="mb-3">
+                <label asp-for="Ad" class="form-label">Öğretmen Adı</label>
+                <input class="form-control" asp-for="Ad">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Soyad" class="form-label">Öğretmen Soyadı</label>
+                <input class="form-control" asp-for="Soyad">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Eposta" class="form-label">Öğretmen Eposta</label>
+                <input class="form-control" asp-for="Eposta">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Telefon" class="form-label">Öğretmen Telefon</label>
+                <input class="form-control" asp-for="Telefon">
+            </div>
+            <div class="mb-3">
+                <label asp-for="BaslamaTarihi" class="form-label">Öğretmen Baslama Tarihi</label>
+                <input class="form-control" asp-for="BaslamaTarihi">
+            </div>
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+        </form>
+    </div>
+    
+    <div class="col-4">
+       <h4>Kurslar</h4>
+       <ul>
+         @foreach(var item in Model.Kurslar){
+            <li>@Html.DisplayFor(x=>item.KursBaslik)</li>
+         }
+       </ul>
+    </div>
+
+</div>

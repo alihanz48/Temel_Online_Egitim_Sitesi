@@ -1,0 +1,30 @@
+@model IEnumerable<Ogretmen>
+<h2>Öğretmenler Listesi</h2>
+<a asp-controller="Ogretmen" asp-action="Create" class="btn btn-primary">Öğretmen Ekle</a>
+<hr>
+    <table class="table table-bordered">
+       <thead>
+        <tr>
+           <th style="width: 150px;">@Html.DisplayNameFor(m=>m.OgretmenId)</th>
+            <th>@Html.DisplayNameFor(m=>m.Ad)</th>
+            <th>@Html.DisplayNameFor(m=>m.Soyad)</th>
+            <th>@Html.DisplayNameFor(m=>m.BaslamaTarihi)</th>
+            <th style="width: 150px;"></th>
+        </tr>
+            
+       </thead>
+       <tbody>
+            @foreach(var ogretmen in Model){
+               <tr>
+                  <td>@Html.DisplayFor(modelOgretmen=>ogretmen.OgretmenId)</td>
+                  <td>@Html.DisplayFor(modelOgretmen=>ogretmen.Ad)</td>
+                  <td>@Html.DisplayFor(modelOgretmen=>ogretmen.Soyad)</td>
+                  <td>@Html.DisplayFor(modelOgretmen=>ogretmen.BaslamaTarihi)</td>
+                  <td>
+                    <a asp-controller="Ogretmen" asp-action="Edit" asp-route-id="@ogretmen.OgretmenId" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-controller="Ogretmen" asp-action="Delete" asp-route-id="@ogretmen.OgretmenId" class="btn btn-sm btn-danger">Delete</a>
+                  </td>
+               </tr>
+            }
+       </tbody>
+    </table>

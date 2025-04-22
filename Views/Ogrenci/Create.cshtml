@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"]="Öğr Kayit";
+}
+@model Ogrenci
+<h2>Öğrenci Ekle</h2>
+<hr>
+<form asp-controller="Ogrenci" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="OgrenciAd" class="form-label">Öğrenci Adı</label>
+        <input type="text" class="form-control" asp-for="OgrenciAd">
+    </div>
+    <div class="mb-3">
+        <label asp-for="OgrenciSoyad" class="form-label">Öğrenci Soyadı</label>
+        <input type="text" class="form-control" asp-for="OgrenciSoyad">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Eposta" class="form-label">Öğrenci Eposta</label>
+        <input type="text" class="form-control" asp-for="Eposta">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Telefon" class="form-label">Öğrenci Telefon</label>
+        <input type="text" class="form-control" asp-for="Telefon">
+    </div>
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form> 

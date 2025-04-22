@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Öğr Edit";
+}
+@model KursViewModel
+<h2>Kurs Güncelleme</h2>
+<hr>
+
+<div class="row">
+
+    <div class="col-8">
+        <form asp-controller="Kurs" asp-action="Edit" method="post">
+            <div asp-validation-summary="All"></div>
+            <input type="hidden" asp-for="KursId">
+            <div class="mb-3">
+                <label asp-for="KursBaslik" class="form-label">Kurs Adı</label>
+                <input type="text" class="form-control" asp-for="KursBaslik">
+            </div>
+            <div class="mb-3">
+                <label asp-for="OgretmenId" class="form-label">Öğretmen</label>
+                <select asp-for="OgretmenId" class="form-select" asp-items="ViewBag.ogretmen">
+                    <option value="">Seçiniz</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+        </form>
+    </div>
+    
+    <div class="col-4">
+        <h4>Öğrenciler</h4>
+        <ul>
+            @foreach (var item in Model.KursKayitlari){
+                <li>@Html.DisplayFor(modelitem => item.Ogrenci.AdSoyad)</li>
+            }
+        </ul>
+    </div>
+
+</div>

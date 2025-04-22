@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"]="Kurs Kayit";
+}
+@model KursKayit
+<h2>Öğrenci Ekle</h2>
+<hr>
+
+<form asp-controller="KursKayit" asp-action="Create" method="post">
+    <p style="color: red; font-size: x-large; font-weight: bold;">@ViewData["err"]</p>
+    <div class="mb-3">
+        <label asp-for="OgrenciId" class="form-label">Öğrenci Id</label>
+        <select asp-for="OgrenciId" asp-items="ViewBag.Ogrenciler">
+            <option value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="KursId" class="form-label">Kurs Id</label>
+        <select asp-for="KursId" asp-items="ViewBag.Kurslar">
+            <option value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form> 

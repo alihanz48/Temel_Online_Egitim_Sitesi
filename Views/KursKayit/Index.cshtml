@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"]="Kurs-Kayıt";
+}
+<a asp-controller="KursKayit" asp-action="Create" class="btn btn-primary">Kurs Kayıt Ekle</a>
+@model IEnumerable<KursKayit>
+<h2>Öğrenci-Kurs Listesi</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 150px;">@Html.DisplayNameFor(m=>m.KayitId)</th>
+            <th>@Html.DisplayNameFor(m=>m.OgrenciId)</th>
+            <th>@Html.DisplayNameFor(m=>m.Kurs.KursBaslik)</th>
+            <th style="width: 150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model){
+           <tr>
+            <td>@Html.DisplayFor(modelitem=>item.KayitId)</td>
+            <td>@Html.DisplayFor(modelitem=>item.Ogrenci.AdSoyad)</td>
+            <td>@Html.DisplayFor(modelitem=>item.Kurs.KursBaslik)</td>
+            <td>
+            <a asp-controller="KursKayit" asp-action="Edit" asp-route-id="@item.Ogrenci.OgrenciId" class="btn btn-sm btn-primary">Edit</a>
+            <a asp-controller="KursKayit" asp-action="Delete" asp-route-id="@item.Ogrenci.OgrenciId" class="btn btn-sm btn-danger">Delete</a>  
+            </td>
+           </tr>
+        }
+    </tbody>
+</table>
